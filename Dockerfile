@@ -29,7 +29,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
 ############################
 # using static nonroot image
 # user:group is nobody:nobody, uid:gid = 65534:65534
-FROM ${DISTROLESS_IMAGE}
+FROM scratch
 
 # Copy our static executable
 COPY --from=builder /go/bin/hello /go/bin/hello
